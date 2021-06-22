@@ -1,0 +1,16 @@
+node_modules/
+.npm
+.git/
+vv/
+venv/
+*.pyc
+*.log
+.DS_Store
+
+build/
+coverage/
+dist/
+lib/
+lib/bundle.js*
+node_modules/
+*.egg-info

@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "./node_modules/dash-components-archetype/config/eslint/eslintrc-react.json"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "settings": {
+    "import/extensions": [
+      ".css$"
+     ]
+   }
+}

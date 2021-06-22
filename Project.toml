@@ -1,0 +1,12 @@
+
+name = "DashDaq"
+uuid = "1b08a953-4be3-4667-9a23-a540cca008f6"
+authors = ["The Plotly Team <dashdaq@plotly.com>"]
+version = "0.5.0"
+
+[deps]
+Dash = "1b08a953-4be3-4667-9a23-3db579824955"
+
+[compat]
+julia = "1.2"
+Dash = "0.1.3"
