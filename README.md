@@ -1,99 +1,68 @@
-# dash_daq
+# DashDaq.jl
 
-DAQ components for Dash.
+Data Acquistion (DAQ) components for Dash.
 
-Docs: https://dash.plotly.com/dash-daq
+[docs-dev-img]: https://img.shields.io/badge/docs-dev-blue.svg
+[docs-dev-url]: https://dash-julia.plotly.com/dash_daq
+[![][docs-dev-img]][docs-dev-url]
 
 ## Installation
 
-`pip install dash_daq` 
-
-(Or for Python 3, `pip3 install dash_daq`)
-
-## Getting started for contributors
-
-```sh
-# Clone this repository
-git clone https://github.com/plotly/dash-daq.git
-
-# Install dependencies
-$ yarn
-
-# Watch source for changes and build to `lib/`
-$ yarn start
+```julia    
+    using Pkg
+    Pkg.add("DashDaq")
 ```
+## Installation in development mode
+
+```julia    
+    (v1.6) pkg> dev DashDaq
+```
+## Install specific version
+
+```julia    
+    using Pkg
+    Pkg.add(name="DashDaq", version="0.5.0")
+```
+## Test
+
+You can run unit test for `DashDaq.jl` as:
+
+```julia    
+    using Pkg
+    Pkg.test("DashDaq")
+```
+
+## Issues
+Report issues related to `DashDaq.jl` at [https://github.com/plotly/DashDaq.jl/issues](https://github.com/plotly/DashDaq.jl/issues)
+
 
 ## Documentation
-Component API documentation can be found at https://dash.plotly.com/dash-daq
+Component API documentation can be found at https://dash-julia.plotly.com/dash_daq
 
-## Development
 
-### Demo server
+### Basic Example
 
-You can start up a demo development server to see a demo of the rendered
-components:
+A switch component that toggles between on and off can be implemented using `DashDaq.jl` as:
 
-```sh
-$ yarn demo
-$ open http://localhost:9000
+```julia
+using Dash, DashDaq
+
+app = dash()
+
+app.layout = daq_booleanswitch(
+  id="my-daq-booleanswitch",
+  on=true
+)  
+run_server(app, "0.0.0.0", debug=true)
 ```
 
-You have to maintain the list of components in `demo/Demo.react.js`.
+## Uninstall `DashDaq.jl`
 
-### Code quality and tests
-
-#### To run lint and unit tests:
-
-```sh
-$ yarn test
+```julia    
+    using Pkg
+    Pkg.rm("DashDaq")
 ```
 
-### Testing your components in Dash
-
-1. Build development bundle to `lib/` and watch for changes
-
-        # Once this is started, you can just leave it running.
-        $ yarn start
-
-2. Install module locally (after every change)
-
-        # Generate metadata, and build the JavaScript bundle
-        $ yarn install-local
-
-        # Now you're done. For subsequent changes, if you've got `yarn start`
-        # running in a separate process, it's enough to just do:
-        $ python setup.py install
-
-3. Run the Dash demo
-
-        $ python demo.py
-
-
-## Installing python package locally
-
-Before publishing to PyPi, you can test installing the module locally:
-
-```sh
-# Install in `site-packages` on your machine
-$ yarn run install-local
-```
-
-## Uninstalling python package locally
-
-```sh
-$ yarn run uninstall-local
-```
-
-
-## Producing a new release as a tarball
-
-```sh
-vim dash_daq/version.py # and increase it to X.X.X
-rm -rf node_modules dist build lib
-yarn install
-yarn build-tarball
-ls dist/dash_daq-X.X.X.tar.gz # this is your tarball
-```
 
 ## Demo applications 
  * Dash Daq HP Multimeter - [http://dash-gallery.plotly.host/dash-daq-hp-multimeter](http://dash-gallery.plotly.host/dash-daq-hp-multimeter)
